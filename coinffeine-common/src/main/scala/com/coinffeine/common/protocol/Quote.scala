@@ -18,6 +18,8 @@ case class Quote(spread: Spread = (None, None), lastPrice: Option[FiatAmount] = 
 
 object Quote {
 
+  def empty = Quote()
+
   /** Utility constructor for the case of having all prices defined */
   def apply(spread: (FiatAmount, FiatAmount), lastPrice: FiatAmount): Quote =
     Quote(spread = Some(spread._1) -> Some(spread._2), lastPrice = Some(lastPrice))
